@@ -28,13 +28,13 @@ unsigned char pos = 0; // 表示位置
 
 void setup() {
   // LEDが接続されたピンを出力に設定します
-  for(int i=LEDPIN; i<LEDPIN + 7; i++) {
+  for(char i=LEDPIN; i<LEDPIN + 7; i++) {
     pinMode(i, OUTPUT);
   }
 }
 
 void loop() {
-  for(int i=0; i<8; i++) {
+  for(char i=0; i<8; i++) {
     digitalWrite(LEDPIN + i, (bitmap[pos] >> i) & 0b00000001);
   }
   if(++pos == BITMAPLEN) pos = 0;
